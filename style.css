@@ -1,0 +1,434 @@
+/* =========================
+   CÀI ĐẶT CHUNG
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    overflow: hidden;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ffb6c9,
+            #ff6f91 45%,
+            #ff416c
+        );
+}
+
+
+/* =========================
+   NỀN
+========================= */
+
+.hearts-background {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+    width: 100%;
+
+    max-width: 480px;
+
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(100, 0, 30, 0.25);
+
+    position: relative;
+
+    z-index: 10;
+
+    animation: appear 0.8s ease;
+}
+
+
+/* =========================
+   TRÁI TIM
+========================= */
+
+.big-heart {
+    font-size: 75px;
+
+    margin-bottom: 10px;
+
+    animation:
+        heartbeat 1.2s infinite;
+}
+
+
+/* =========================
+   TIÊU ĐỀ
+========================= */
+
+h1 {
+    color: #ff3d70;
+
+    font-size: 32px;
+
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   NỘI DUNG
+========================= */
+
+.message {
+    color: #555;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   CÂU HỎI
+========================= */
+
+.question-text {
+    color: #ff3d70;
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    margin: 25px 0;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+.buttons {
+    width: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    min-height: 55px;
+}
+
+button {
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 50px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+
+/* Nút đồng ý */
+
+#yes {
+    color: white;
+
+    background:
+        linear-gradient(
+            135deg,
+            #ff416c,
+            #ff4b7d
+        );
+
+    box-shadow:
+        0 8px 20px rgba(255, 65, 108, 0.35);
+}
+
+#yes:hover {
+    transform: scale(1.08);
+}
+
+#yes:active {
+    transform: scale(0.95);
+}
+
+
+/* Nút không */
+
+#no {
+    color: #555;
+
+    background: #eeeeee;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.1);
+
+    position: relative;
+
+    z-index: 20;
+}
+
+
+/* =========================
+   SUCCESS
+========================= */
+
+#success {
+    display: none;
+}
+
+.success-heart {
+    font-size: 80px;
+
+    animation:
+        heartbeat 1s infinite;
+}
+
+#success h2 {
+    color: #ff3d70;
+
+    font-size: 35px;
+
+    margin: 15px 0;
+}
+
+#success p {
+    color: #555;
+
+    font-size: 18px;
+
+    line-height: 1.6;
+
+    margin: 10px 0;
+}
+
+.love-text {
+    font-size: 20px !important;
+
+    color: #ff3d70 !important;
+}
+
+.final-love {
+    margin-top: 25px;
+
+    color: #ff3d70;
+
+    font-size: 24px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   TIM BAY
+========================= */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -50px;
+
+    pointer-events: none;
+
+    z-index: 2;
+
+    animation:
+        flyUp linear forwards;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes heartbeat {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.18);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+@keyframes flyUp {
+
+    0% {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+@keyframes appear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px)
+            scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================
+   ĐIỆN THOẠI
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 30px 20px;
+
+        border-radius: 25px;
+    }
+
+    .big-heart {
+        font-size: 65px;
+    }
+
+    h1 {
+        font-size: 27px;
+    }
+
+    .message {
+        font-size: 16px;
+    }
+
+    .question-text {
+        font-size: 18px;
+    }
+
+    button {
+        padding: 13px 21px;
+
+        font-size: 15px;
+    }
+
+    .success-heart {
+        font-size: 65px;
+    }
+
+    #success h2 {
+        font-size: 30px;
+    }
+}
+
+
+/* Điện thoại rất nhỏ */
+
+@media (max-width: 360px) {
+
+    .card {
+        padding: 25px 15px;
+    }
+
+    .big-heart {
+        font-size: 55px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .question-text {
+        font-size: 17px;
+    }
+
+    button {
+        padding: 12px 17px;
+    }
+}
